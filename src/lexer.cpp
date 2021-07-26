@@ -1,5 +1,16 @@
 #include "include/northen/lexer.h"
 
+#define TOKEN_NUMBER(num) tokens_.push_back(Token{TokenType::Number, std::stod(num)})
+#define TOKEN_PLUS() tokens_.push_back(Token{TokenType::Plus})
+#define TOKEN_MINUS() tokens_.push_back(Token{TokenType::Minus})
+#define TOKEN_MULTIPLY() tokens_.push_back(Token{TokenType::Multiply})
+#define TOKEN_DEVIDE() tokens_.push_back(Token{TokenType::Devide})
+
+#define TOKEN_VALIDATE_NUMBER(num) if (num.size() > 0) { \
+                                      TOKEN_NUMBER(num); \
+                                      num.clear();       \
+                                   }
+
 namespace N {
 
 void Lexer::Analyze() {
@@ -10,39 +21,30 @@ void Lexer::Analyze() {
     if (isdigit(src_[index]))
       num += src_[index];
     else if (src_[index] == '+') {
-      if (num.size() > 0) {
-        tokens_.push_back(Token{TokenType::Number, std::stod(num)});
-        num.clear();
-      }
-      tokens_.push_back(Token{TokenType::Plus});
+      TOKEN_VALIDATE_NUMBER(num);
+      TOKEN_PLUS();
     }
     else if (src_[index] == '-') {
-      if (num.size() > 0) {
-        tokens_.push_back(Token{TokenType::Number, std::stod(num)});
-        num.clear();
-      }
-      tokens_.push_back(Token{TokenType::Minus});
+
+      TOKEN_VALIDATE_NUMBER(num);
+      TOKEN_MINUS();
     }
     else if (src_[index] == '*') {
-      if (num.size() > 0) {
-        tokens_.push_back(Token{TokenType::Number, std::stod(num)});
-        num.clear();
-      }
-      tokens_.push_back(Token{TokenType::Multiply});
+
+      TOKEN_VALIDATE_NUMBER(num);
+      TOKEN_MULTIPLY();
     }
     else if (src_[index] == '/') {
-      if (num.size() > 0) {
-        tokens_.push_back(Token{TokenType::Number, std::stod(num)});
-        num.clear();
-      }
-      tokens_.push_back(Token{TokenType::Devide});
+
+      TOKEN_VALIDATE_NUMBER(num);
+      TOKEN_DEVIDE();
     }
 
     index++;
   }
 
   if (num.size() > 0) {
-    tokens_.push_back(Token{TokenType::Number, std::stod(num)});
+    TOKEN_NUMBER(num);
   }
 
 }
