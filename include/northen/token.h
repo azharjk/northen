@@ -13,20 +13,20 @@ enum class TokenType {
 
 class Token {
   public:
-    Token(TokenType type, int data = 0)
+    Token(TokenType type, double data = 0)
       : type_(type), data_(data) {}
 
     TokenType type() const {
       return type_;
     }
 
-    int data() const {
+    double data() const {
       return data_;
     }
 
   private:
     TokenType type_;
-    int data_;
+    double data_;
 };
 
 } // namespace N
