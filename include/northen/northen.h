@@ -2,12 +2,25 @@
 #define NORTHEN_NORTHEN_H_
 
 #include <string>
+#include <vector>
+
+#include "include/northen/token.h"
 
 namespace N {
 
 class Application {
   public:
-    static double Evaluate(std::string s);
+    Application(std::string s)
+      : tokens_(make(s)) {}
+
+    std::vector<Token> tokens() {
+      return tokens_;
+    }
+
+  private:
+    std::vector<Token> make(const std::string& s);
+
+    std::vector<Token> tokens_;
 };
 
 } // namespace N
