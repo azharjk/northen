@@ -16,13 +16,8 @@ class Token {
     Token(TokenType type, double data = 0)
       : type_(type), data_(data) {}
 
-    TokenType type() const {
-      return type_;
-    }
-
-    double data() const {
-      return data_;
-    }
+    TokenType type() const { return type_; }
+    double data() const { return data_; }
 
   private:
     TokenType type_;

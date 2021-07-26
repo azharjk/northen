@@ -2,7 +2,11 @@ cmake_minimum_required(VERSION 3.0)
 project(Northen CXX)
 
 # Northen cpp source file
-set(NORTHEN_SOURCE_FILE ${CMAKE_SOURCE_DIR}/src/northen.cpp)
+set(
+  NORTHEN_SOURCE_FILE
+  ${CMAKE_SOURCE_DIR}/src/northen.cpp
+  ${CMAKE_SOURCE_DIR}/src/lexer.cpp
+)
 
 include_directories(${CMAKE_SOURCE_DIR})
 
