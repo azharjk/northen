@@ -1,6 +1,8 @@
 #ifndef NORTHEN_TOKEN_H_
 #define NORTHEN_TOKEN_H_
 
+#include <string>
+
 namespace N {
 
 enum class TokenType {
@@ -16,8 +18,7 @@ class Token {
     Token(TokenType type, double data = 0)
       : type_(type), data_(data) {}
 
-    TokenType type() const { return type_; }
-    double data() const { return data_; }
+    std::string ToString() const;
 
   private:
     TokenType type_;

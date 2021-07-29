@@ -25,17 +25,14 @@ void Lexer::Analyze() {
       TOKEN_PLUS();
     }
     else if (src_[index] == '-') {
-
       TOKEN_VALIDATE_NUMBER(num);
       TOKEN_MINUS();
     }
     else if (src_[index] == '*') {
-
       TOKEN_VALIDATE_NUMBER(num);
       TOKEN_MULTIPLY();
     }
     else if (src_[index] == '/') {
-
       TOKEN_VALIDATE_NUMBER(num);
       TOKEN_DEVIDE();
     }
