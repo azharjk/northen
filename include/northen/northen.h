@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "include/northen/token.h"
+#include "include/northen/ast.h"
 
 namespace N {
 

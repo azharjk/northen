@@ -7,6 +7,7 @@ set(
   ${CMAKE_SOURCE_DIR}/src/northen.cpp
   ${CMAKE_SOURCE_DIR}/src/lexer.cpp
   ${CMAKE_SOURCE_DIR}/src/token.cpp
+  ${CMAKE_SOURCE_DIR}/src/ast.cpp
 )
 
 include_directories(${CMAKE_SOURCE_DIR})
